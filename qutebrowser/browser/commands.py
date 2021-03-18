@@ -954,7 +954,7 @@ class CommandDispatcher:
         return ret
 
     @cmdutils.register(instance='command-dispatcher', scope='window',
-                       maxsplit=0, deprecated_name='buffer')
+                       maxsplit=0)
     @cmdutils.argument('index', completion=miscmodels.tabs)
     @cmdutils.argument('count', value=cmdutils.Value.count)
     def tab_select(self, index=None, count=None):
@@ -1525,8 +1525,7 @@ class CommandDispatcher:
             objreg.last_focused_window(), alert=False))
         ed.edit(text, caret_position)
 
-    @cmdutils.register(instance='command-dispatcher', scope='window',
-                       deprecated_name='open-editor')
+    @cmdutils.register(instance='command-dispatcher', scope='window')
     def edit_text(self):
         """Open an external editor with the currently selected form field.
 
